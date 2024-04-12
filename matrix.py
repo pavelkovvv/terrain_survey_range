@@ -57,51 +57,31 @@ def generate_view_polygon(height_matrix, station_x, station_y, station_h, rds):
     #             if height <= station_h:
     #                 # Добавление координат точки в полигон
     #                 polygon_points.append([x, y])
-    polygon_points.append([3, 3])
-    polygon_points.append([3, 4])
-    polygon_points.append([3, 5])
-    polygon_points.append([3, 6])
-    polygon_points.append([3, 7])
-    polygon_points.append([3, 8])
-    polygon_points.append([3, 9])
-    # polygon_points.append([4, 4])
-    # polygon_points.append([4, 5])
-    # polygon_points.append([4, 6])
-    # polygon_points.append([4, 7])
-    # polygon_points.append([4, 8])
-    # polygon_points.append([5, 5])
-    # polygon_points.append([5, 6])
-    # polygon_points.append([5, 7])
-    # polygon_points.append([6, 6])
-    # polygon_points.append([3, 4])
-    # polygon_points.append([3, 5])
-    # polygon_points.append([3, 6])
-    # polygon_points.append([3, 7])
-    # polygon_points.append([3, 8])
-    # polygon_points.append([2, 5])
-    # polygon_points.append([2, 6])
-    # polygon_points.append([2, 7])
-    # polygon_points.append([1, 6])
+    
 
 
     # Формирование GeoJSON полигона
     geojson_polygon = {
-        "type": "FeatureCollection",
-        "features": [
-            {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Polygon",
-                    "coordinates": [polygon_points]
-                },
-                "properties": {
-                    "station_x": station_x,
-                    "station_y": station_y,
-                    "station_h": station_h,
-                    "radius": rds
-                }
-            }
-        ]
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "geometry": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                polygon_points
+              ]
+            ]
+          },
+          "properties": {
+            "station_x": station_x,
+            "station_y": station_y,
+            "station_h": station_h,
+            "radius": rds
+          }
+        }
+      ]
     }
 
     return geojson_polygon

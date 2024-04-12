@@ -2,7 +2,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 
 # Чтение файла GeoJSON
-geojson_file = "view_polygon.geojson"
+geojson_file = "example_true_polygon.geojson"
 gdf = gpd.read_file(geojson_file)
 
 # Создание графика с указанием размеров
