@@ -9,7 +9,7 @@ gdf = gpd.read_file(geojson_file)
 fig, ax = plt.subplots()
 
 # Визуализация геометрий
-gdf.plot(ax=ax)
+gdf.plot(ax=ax, facecolor='yellow', edgecolor='blue')  # устанавливаем цвет границы и прозрачный цвет заполнения
 
 # Отображение графика
 plt.show()
