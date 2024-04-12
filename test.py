@@ -5,11 +5,15 @@ import matplotlib.pyplot as plt
 geojson_file = "view_polygon.geojson"
 gdf = gpd.read_file(geojson_file)
 
-# Создание графика
-fig, ax = plt.subplots()
+# Создание графика с указанием размеров
+fig, ax = plt.subplots(figsize=(5, 5))
 
-# Визуализация геометрий
-gdf.plot(ax=ax, facecolor='yellow', edgecolor='blue')  # устанавливаем цвет границы и прозрачный цвет заполнения
+# Установка пределов по осям X и Y
+ax.set_xlim(0, 50)
+ax.set_ylim(0, 50)
+
+# Визуализация геометрии
+gdf.plot(ax=ax)
 
 # Отображение графика
 plt.show()
